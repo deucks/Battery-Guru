@@ -1,0 +1,49 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="batteryBetter.NotUpdating"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="BATTERYGURU NOT UPDATING?" Style="{StaticResource PhoneTextNormalStyle}" FontWeight="Bold" FontSize="30" Height="44" Margin="0,0,12,0"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <ScrollViewer x:Name="ContentGrid" Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                <StackPanel Background="Transparent" >
+
+                    <TextBlock TextWrapping="Wrap" Text="Step 1: Disable background tasks from other apps" Margin="12,0,0,0" FontFamily="Segoe WP SemiLight" FontSize="30"/>
+                    <TextBlock TextWrapping="Wrap" Text="1. Open the Battery Saver App (Click this Text)" Margin="40,20,0,0" Tap="TextBlock_Tap"/>
+                    <TextBlock TextWrapping="Wrap" Text="2. Swipe to the 'Usage' tab and find apps that you do not use." Margin="40,12,0,0"/>
+                    <TextBlock TextWrapping="Wrap" Text="3. Click on said app and uncheck the toggle for 'allow app to run in the background', as seen below" Margin="40,12,0,0"/>
+                    <Image Height="426" Width="436" Source="/Assets/uncheckThatShit.jpg"/>
+
+                    <TextBlock TextWrapping="Wrap" Text="Step 2: Soft restart phone" Margin="12,15,0,0" FontFamily="Segoe WP SemiLight" FontSize="30"/>
+                    <TextBlock TextWrapping="Wrap" Text="1. Hold down the phones POWER and VOLUME DOWN button for 10 seconds, wait till the phone restarts." Margin="40,20,0,0"/>
+                    <TextBlock TextWrapping="Wrap" Text="2. Restart the BatteryGuru to re-enable minute updating." Margin="40,12,0,0"/>
+
+
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

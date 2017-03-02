@@ -1,0 +1,7 @@
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\ScheduledTaskAgent1\Bin\Release\ScheduledTaskAgent1.dll
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\ScheduledTaskAgent1\Bin\Release\ScheduledTaskAgent1.pdb
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\ScheduledTaskAgent1\Bin\Release\Core.dll
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\ScheduledTaskAgent1\Bin\Release\Core.pdb
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\ScheduledTaskAgent1\obj\Release\ScheduledTaskAgent1.csprojResolveAssemblyReference.cache
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\ScheduledTaskAgent1\obj\Release\ScheduledTaskAgent1.dll
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\ScheduledTaskAgent1\obj\Release\ScheduledTaskAgent1.pdb

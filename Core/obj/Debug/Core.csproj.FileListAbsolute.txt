@@ -1,0 +1,15 @@
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\Bin\Debug\Core.dll
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\Bin\Debug\Core.pdb
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Debug\Core.g.resources
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Debug\Core.dll
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Debug\Core.pdb
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Debug\SmallTile\VerticalSmall.g.cs
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Debug\WideTile\BatteryLarge.g.cs
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Debug\SmallTile\BatterySmall.g.cs
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Debug\WideTile\VerticalWide.g.cs
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Debug\SmallTile\TraditionalSmall.g.cs
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Debug\WideTile\TraditionalWide.g.cs
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Debug\SmallTile\DomoSmall.g.cs
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Debug\WideTile\DomoWide.g.cs
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Debug\SmallTile\SimpleSmall.g.cs
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Debug\WideTile\SimpleWide.g.cs

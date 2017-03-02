@@ -1,0 +1,15 @@
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\Bin\Release\Core.dll
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\Bin\Release\Core.pdb
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Release\SmallTile\DomoSmall.g.cs
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Release\SmallTile\SimpleSmall.g.cs
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Release\SmallTile\TraditionalSmall.g.cs
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Release\SmallTile\VerticalSmall.g.cs
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Release\WideTile\BatteryLarge.g.cs
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Release\SmallTile\BatterySmall.g.cs
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Release\WideTile\DomoWide.g.cs
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Release\WideTile\SimpleWide.g.cs
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Release\WideTile\TraditionalWide.g.cs
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Release\WideTile\VerticalWide.g.cs
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Release\Core.g.resources
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Release\Core.dll
+C:\Users\Raajit\documents\visual studio 2013\Projects\batteryBetter\Core\obj\Release\Core.pdb

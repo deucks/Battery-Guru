@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="Core.SmallTile.VerticalSmall"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="336" d:DesignWidth="336">
+
+    <Grid x:Name="LayoutRoot">
+        <Grid x:Name="backgroundStatus" HorizontalAlignment="Left" Height="336" VerticalAlignment="Top" Width="336" RenderTransformOrigin="0.5,0.5" Opacity="0.7" Background="{StaticResource PhoneAccentBrush}"/>
+        <TextBlock x:Name="ChargeStatus" HorizontalAlignment="Left" TextWrapping="Wrap" Text="40%" VerticalAlignment="Top" FontSize="130" FontFamily="Segoe WP Light" Width="336" Foreground="#FFFDFDFD" Height="173" TextAlignment="Center" Margin="0,40,0,0"/>
+        <TextBlock x:Name="ChargeStatusDescription" HorizontalAlignment="Left" TextWrapping="Wrap" Text="power off around 12:11pm wednesday" VerticalAlignment="Top" FontSize="40" FontFamily="Segoe WP Light" Width="316" Foreground="#FFFDFDFD" Height="101" TextAlignment="Center" Margin="10,217,0,0"/>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,49 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="batteryBetter.Notifications"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="NOTIFCATIONS" Style="{StaticResource PhoneTextNormalStyle}" FontWeight="Bold" FontSize="30" Height="44"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <ScrollViewer x:Name="ContentGrid" Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                <StackPanel Background="Transparent" >                                        
+                    
+                    <toolkit:ToggleSwitch x:Name="BatteryLowSwitch" Header="notify when battery is low" IsChecked="false" Content="battery low notification" Checked="BatteryLowSwitch_Checked" Unchecked="BatteryLowSwitch_Unchecked" />
+                    
+                    <TextBlock x:Name="lowBattery" TextWrapping="Wrap" Text="low battery threshold, 5%" Margin="10,0,0,0" Foreground="#FFA2A2A2"/>
+                    <Slider Name="slider2" VerticalAlignment="Top" Minimum="5" Maximum="100" SmallChange="10" LargeChange="20" ValueChanged="slider2_ValueChanged"/>
+
+                    <toolkit:ToggleSwitch x:Name="BatteryFullSwitch" Header="notify when battery is full" IsChecked="false" Content="battery full notification" Checked="BatteryFullSwitch_Checked" Unchecked="BatteryFullSwitch_Unchecked" />
+                        
+                    <TextBlock x:Name="pushNotifications" TextWrapping="Wrap" Text="push notifications every, 1 minute" Margin="10,0,0,0" Foreground="#FFA2A2A2"/>
+                    <Slider Name="slider1" VerticalAlignment="Top" Minimum="2" Maximum="15" SmallChange="10" LargeChange="20" ValueChanged="slider1_ValueChanged"/>
+
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

@@ -1,0 +1,295 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="batteryBetter.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:batteryBetter"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sparrow="clr-namespace:Sparrow.Chart;assembly=Sparrow.Chart.WP8.45"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+    <phone:PhoneApplicationPage.Resources>
+        <Storyboard x:Name="showDetailed">
+            <DoubleAnimation Duration="0:0:0.3" To="704" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="grid" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Duration="0:0:0.3" To="2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="grid" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+        <Storyboard x:Name="hideDetailed">
+            <DoubleAnimation Duration="0:0:0.4" To="-39.971" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="grid" d:IsOptimized="True">
+                <DoubleAnimation.EasingFunction>
+                    <QuinticEase EasingMode="EaseIn"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+    </phone:PhoneApplicationPage.Resources>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneBackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28"/>
+
+        <phone:Pivot FontSize="30" FontFamily="Arial" FontWeight="Bold" Margin="0,116,0,0" Grid.Row="1" >
+            <!--Pivot item one-->
+            <phone:PivotItem Margin="12,4,12,48" >
+                <phone:PivotItem.Header>
+                    <TextBlock Text="GENERAL" FontSize="30" FontFamily="Segoe UI Semilight" Margin="0,30,0,0" FontWeight="Bold"/>
+                </phone:PivotItem.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="43*"/>
+                        <ColumnDefinition Width="185*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="PowerOffTitle" HorizontalAlignment="Left" Margin="10,110,0,0" TextWrapping="Wrap" Text="POWER OFF " VerticalAlignment="Top" FontFamily="Segoe UI Semilight" FontSize="22" FontWeight="Bold" Foreground="{StaticResource PhoneAccentBrush}" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="DischarginRateTitle" HorizontalAlignment="Left" Margin="10,20,0,0" TextWrapping="Wrap" Text="DISCHARGING RATE" VerticalAlignment="Top" FontFamily="Segoe UI Semilight" FontSize="22" FontWeight="Bold" Foreground="{StaticResource PhoneAccentBrush}" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="PowerOffAtTitle" HorizontalAlignment="Left" Margin="10,202,0,0" TextWrapping="Wrap" Text="POWER OFF AT" VerticalAlignment="Top" FontFamily="Segoe UI Semilight" FontSize="22" FontWeight="Bold" Foreground="{StaticResource PhoneAccentBrush}" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="DischargeRateInput" HorizontalAlignment="Left" Margin="10,51,0,0" TextWrapping="Wrap" Text="3 percent/hour" VerticalAlignment="Top" FontFamily="Microsoft YaHei Light" FontSize="30" Width="436" FontWeight="Normal" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="powerOffInInput" HorizontalAlignment="Left" Margin="10,141,0,0" TextWrapping="Wrap" Text="12 hours" VerticalAlignment="Top" FontFamily="Microsoft YaHei Light" FontSize="30" Width="436" FontWeight="Normal" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="powerOffAtInput" HorizontalAlignment="Left" Margin="10,235,0,0" TextWrapping="Wrap" Text="3 percent/hour" VerticalAlignment="Top" FontFamily="Microsoft YaHei Light" FontSize="30" Width="436" FontWeight="Normal" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="LastChargeTitle" HorizontalAlignment="Left" Margin="10,292,0,0" TextWrapping="Wrap" Text="TIME SINCE LAST CHARGE" VerticalAlignment="Top" FontFamily="Segoe UI Semilight" FontSize="22" FontWeight="Bold" Foreground="{StaticResource PhoneAccentBrush}" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="timeSinceLastChargeInput" HorizontalAlignment="Left" Margin="10,327,0,0" TextWrapping="Wrap" Text="3 percent/hour" VerticalAlignment="Top" FontFamily="Microsoft YaHei Light" FontSize="30" Width="436" FontWeight="Normal" Grid.ColumnSpan="2"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,387,0,0" TextWrapping="Wrap" Text="CONNECTIVITY" VerticalAlignment="Top" FontFamily="Segoe UI Semilight" FontSize="22" FontWeight="Bold" Foreground="{StaticResource PhoneAccentBrush}" Grid.ColumnSpan="2"/>
+                    <Image HorizontalAlignment="Left" Height="63" VerticalAlignment="Top" Width="65" Margin="10,418,0,0" Source="/Wifi.png" Tap="Image_Tap"/>
+                    <Image HorizontalAlignment="Left" Height="63" VerticalAlignment="Top" Width="65" Margin="75,418,0,0" Source="/appbar.phone.png" Tap="Image_Tap_1" Grid.ColumnSpan="2"/>
+                    <Image HorizontalAlignment="Left" Height="63" VerticalAlignment="Top" Width="65" Margin="54,418,0,0" Source="/Airplane.png" Tap="Image_Tap_2" Grid.Column="1"/>
+                    <Image HorizontalAlignment="Left" Height="63" VerticalAlignment="Top" Width="65" Margin="119,418,0,0" Source="/BatterySaver.png" Tap="Image_Tap_3" Grid.Column="1"/>
+
+
+                </Grid>
+            </phone:PivotItem>
+
+            <phone:PivotItem Margin="12,10,12,2" >
+                <phone:PivotItem.Header>
+                    <TextBlock Text="DETAILED" FontSize="30" FontFamily="Segoe UI Semilight" Margin="0,30,0,0" FontWeight="Bold"/>
+                </phone:PivotItem.Header>
+                <Grid Margin="0,-14,0,0">
+
+                    <ListBox x:Name="detailedList" Margin="-4,88,4,0" ScrollViewer.VerticalScrollBarVisibility="Hidden" RenderTransformOrigin="0.5,0.5" SelectionChanged="detailedList_SelectionChanged" >
+                        <ListBox.RenderTransform>
+                            <CompositeTransform/>
+                        </ListBox.RenderTransform>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Margin="16,3,0,0"  Text="{Binding date}" FontFamily="Segoe WP SemiLight" FontSize="32" FontWeight="Normal" />
+                                    <TextBlock Margin="16,2,0,7" Text="{Binding description}" FontFamily="Segoe WP SemiLight" FontWeight="Normal" FontSize="18" Opacity="0.7" />
+                                    <ProgressBar Margin="6,15,0,0" HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="452" Value="{Binding quantity}" Background="{x:Null}" Foreground="{StaticResource PhoneAccentBrush}">
+                                        <ProgressBar.RenderTransform>
+                                            <CompositeTransform ScaleY="-2"/>
+                                        </ProgressBar.RenderTransform>
+                                    </ProgressBar>
+
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+
+                    </ListBox>
+                    <toolkit:ListPicker x:Name="DetailedSort" SelectionChanged="DetailedSort_SelectionChanged" Margin="14,10,10,0">
+                        <toolkit:ListPickerItem x:Name="detailedMinutely" Content="minutely" Margin="6,0,-6,0" FontFamily="Segoe WP SemiLight" FontWeight="Normal" />
+                        <toolkit:ListPickerItem x:Name="detailedHourly" Content="hourly" Margin="6,0,-6,0" FontFamily="Segoe WP SemiLight" FontWeight="Normal" />
+
+                    </toolkit:ListPicker>
+                </Grid>
+            </phone:PivotItem>
+
+            <phone:PivotItem Margin="12,10,12,48" >
+                <phone:PivotItem.Header>
+                    <TextBlock Text="GRAPHS" FontSize="30" FontFamily="Segoe UI Semilight" Margin="0,30,0,0" FontWeight="Bold"/>
+                </phone:PivotItem.Header>
+                <Grid Margin="0,-14,0,0">
+
+                    <local:BatteryChart x:Name="areachart" Margin="-42,93,-6,-46"/>
+
+                    <toolkit:ListPicker x:Name="GraphSort" SelectionChanged="GraphSort_SelectionChanged">
+                        <toolkit:ListPickerItem x:Name="graphHourly" Content="last hour" Margin="6,0,-6,0" FontFamily="Segoe WP SemiLight" FontWeight="Normal" />
+                        <toolkit:ListPickerItem x:Name="graphdaily" Content="last 24 hours" Margin="6,0,-6,0" FontFamily="Segoe WP SemiLight" FontWeight="Normal" />
+
+
+                        <toolkit:ListPickerItem x:Name="graphweekly" Content="last 7 days" Margin="6,0,-6,0" FontFamily="Segoe WP SemiLight" FontWeight="Normal" />
+                        <toolkit:ListPickerItem x:Name="graphlastcharge" Content="last charge" Margin="6,0,-6,0" FontFamily="Segoe WP SemiLight" FontWeight="Normal" />
+                        <toolkit:ListPickerItem x:Name="graphalltime" Content="last 100% charge" Margin="6,0,-6,0" FontFamily="Segoe WP SemiLight" FontWeight="Normal" />
+                    </toolkit:ListPicker>
+                    <TextBlock x:Name="sortText" HorizontalAlignment="Left" Margin="-12,0,-10,-38" TextWrapping="Wrap" Text="last hour" VerticalAlignment="Bottom" Width="478" TextAlignment="Center" FontFamily="Segoe WP Light" FontWeight="Normal" FontSize="25"/>
+
+                </Grid>
+            </phone:PivotItem>
+
+            <phone:PivotItem Margin="12,10,12,0" >
+                <phone:PivotItem.Header>
+                    <TextBlock Text="USAGE" FontSize="30" FontFamily="Segoe UI Semilight" Margin="0,30,0,0" FontWeight="Bold"/>
+                </phone:PivotItem.Header>
+                <Grid Margin="0,-14,0,0">
+                    <ListBox x:Name="usageList" Margin="-4,86,4,12" ScrollViewer.VerticalScrollBarVisibility="Hidden" RenderTransformOrigin="0.5,0.5" SelectionChanged="usageList_SelectionChanged" >
+                        <ListBox.RenderTransform>
+                            <CompositeTransform/>
+                        </ListBox.RenderTransform>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Margin="16,3,0,0"  Text="{Binding name}" FontFamily="Segoe WP SemiLight" FontSize="32" FontWeight="Normal" />
+                                    <TextBlock Margin="16,2,0,7" Text="{Binding description}" FontFamily="Segoe WP SemiLight" FontWeight="Normal" FontSize="18" Opacity="0.7" />
+                                    <ProgressBar Margin="6,15,0,0" HorizontalAlignment="Left" Height="10" VerticalAlignment="Top" Width="452" Value="{Binding quantity}" Background="{x:Null}">
+                                        <ProgressBar.RenderTransform>
+                                            <CompositeTransform ScaleY="-2"/>
+                                        </ProgressBar.RenderTransform>
+                                    </ProgressBar>
+
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+
+                    </ListBox>
+                    <toolkit:ListPicker x:Name="UsageSort" SelectionChanged="UsageSort_SelectionChanged">
+                        <toolkit:ListPickerItem x:Name="usageCharge" Content="last charge" Margin="6,0,-6,0" FontFamily="Segoe WP SemiLight" FontWeight="Normal" />
+                        <toolkit:ListPickerItem x:Name="usageHundred" Content="last 100% charge" Margin="6,0,-6,0" FontFamily="Segoe WP SemiLight" FontWeight="Normal" />
+                        <toolkit:ListPickerItem x:Name="usageAlltime" Content="all time" Margin="6,0,-6,0" FontFamily="Segoe WP SemiLight" FontWeight="Normal" />
+                    </toolkit:ListPicker>
+                </Grid>
+            </phone:PivotItem>
+
+            <phone:PivotItem Margin="12,16,12,48" >
+                <phone:PivotItem.Header>
+                    <TextBlock Text="SETTINGS" FontSize="30" FontFamily="Segoe UI Semilight" Margin="0,30,0,0" FontWeight="Bold"/>
+                </phone:PivotItem.Header>
+                <Grid Margin="0,-14,0,-47">
+                    <ScrollViewer x:Name="ContentGrid" Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                        <StackPanel Background="Transparent" >
+                            <TextBlock HorizontalAlignment="Left" Margin="10,20,0,0" TextWrapping="Wrap" Text="MISC" VerticalAlignment="Top" FontFamily="Segoe UI Semilight" FontSize="22" FontWeight="Bold" Foreground="{StaticResource PhoneAccentBrush}"/>
+                            <TextBlock TextWrapping="Wrap" Text="read data" FontFamily="Microsoft YaHei Light" FontWeight="Normal" FontSize="32" Padding="0" Margin="10,15,0,0" Tap="TextBlock_Tap_6" Visibility="Collapsed"/>
+
+                            <TextBlock TextWrapping="Wrap" Text="email me" FontFamily="Microsoft YaHei Light" FontWeight="Normal" FontSize="32" Padding="0" Margin="10,15,0,0" Tap="TextBlock_Tap_4">
+
+                            </TextBlock>
+
+                            <TextBlock TextWrapping="Wrap" Text="like us on facebook" FontFamily="Microsoft YaHei Light" FontWeight="Normal" FontSize="32" Padding="0" Margin="10,15,0,0" Tap="TextBlock_Tap_3">
+
+                            </TextBlock>
+                            <TextBlock x:Name="rateMe" TextWrapping="Wrap" Text="rate to remove ads" FontFamily="Microsoft JhengHei Light" FontWeight="Normal" FontSize="32" Padding="0" Margin="10,15,0,0" Tap="TextBlock_Tap_1">
+
+                            </TextBlock>
+                            <TextBlock x:Name="goProButton" TextWrapping="Wrap" Text="upgrade pro" FontFamily="Microsoft JhengHei Light" FontWeight="Normal" FontSize="32" Padding="0" Margin="10,15,0,0" Tap="TextBlock_Tap_2">
+
+                            </TextBlock>
+                            <TextBlock TextWrapping="Wrap" Text="pin live tile" FontFamily="Microsoft JhengHei Light" FontWeight="Normal" FontSize="32" Padding="0" Margin="10,15,0,0" Tap="TextBlock_Tap">
+
+                            </TextBlock>
+
+                            <TextBlock HorizontalAlignment="Left" Margin="10,25,0,0" TextWrapping="Wrap" Text="APP SETTINGS" VerticalAlignment="Top" FontFamily="Segoe UI Semilight" FontSize="22" FontWeight="Bold" Foreground="{StaticResource PhoneAccentBrush}" Tap="TextBlock_Tap_5"/>
+
+                            <TextBlock x:Name="notifSetting" TextWrapping="Wrap" Text="notifications" FontFamily="Microsoft JhengHei Light" FontWeight="Normal" FontSize="32" Padding="0" Margin="10,15,0,0" Tap="notifSetting_Tap">
+
+                            </TextBlock>
+                            <TextBlock x:Name="liveTileSetting" TextWrapping="Wrap" Text="live tile faces" FontFamily="Microsoft JhengHei Light" FontWeight="Normal" FontSize="32" Padding="0" Margin="10,15,0,0" Tap="liveTileSetting_Tap">
+
+                            </TextBlock>
+                            <TextBlock x:Name="enablelockScreen" TextWrapping="Wrap" Text="add app to lockscreen" FontFamily="Microsoft JhengHei Light" FontWeight="Normal" FontSize="32" Padding="0" Margin="10,15,0,0" Tap="enablelockScreen_Tap">
+
+                            </TextBlock>
+                            <TextBlock x:Name="resetData" TextWrapping="Wrap" Text="reset logging data" FontFamily="Microsoft JhengHei Light" FontWeight="Normal" FontSize="32" Padding="0" Margin="10,15,0,0" Tap="resetData_Tap">
+
+                            </TextBlock>
+                            <TextBlock x:Name="notUpdating" TextWrapping="Wrap" Text="not updating" FontFamily="Microsoft JhengHei Light" FontWeight="Normal" FontSize="32" Padding="0" Margin="10,15,0,0" Tap="notUpdating_Tap">
+
+                            </TextBlock>
+
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </phone:PivotItem>
+
+
+
+        </phone:Pivot>
+
+        <Grid x:Name="grid" Margin="-2,-455,-4,704" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2" Tap="grid_Tap" Background="{StaticResource PhoneBackgroundBrush}">
+            <Grid.RenderTransform>
+                <CompositeTransform/>
+            </Grid.RenderTransform>
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                <StackPanel Background="Transparent" >
+                    <StackPanel Background="Transparent" Orientation="Horizontal">
+                        <Image Height="70" Width="70" Source="/Icons/appbar.close.png" Margin="12,0,0,0"/>
+                        <TextBlock TextWrapping="Wrap" Text="Close" FontFamily="Segoe WP SemiLight" FontSize="33" Margin="0,10,0,0" />
+                    </StackPanel>
+                    <TextBlock HorizontalAlignment="Left" Margin="23,15,0,0" TextWrapping="Wrap" Text="TIMESTAMP" VerticalAlignment="Top" FontFamily="Segoe UI Semilight" FontSize="22" FontWeight="Bold" Foreground="{StaticResource PhoneAccentBrush}"/>
+
+                    <TextBlock x:Name="detailedTime" TextWrapping="Wrap" Text="06:38PM, Sunday" FontFamily="Segoe WP SemiLight" FontSize="30" Margin="23,10,0,10" />
+                    <TextBlock HorizontalAlignment="Left" Margin="23,15,0,0" TextWrapping="Wrap" Text="BATTERY" VerticalAlignment="Top" FontFamily="Segoe UI Semilight" FontSize="22" FontWeight="Bold" Foreground="{StaticResource PhoneAccentBrush}"/>
+                    <StackPanel Background="Transparent" Orientation="Horizontal">
+                        <Image Height="70" Width="70" Source="/BatterySaver.png" Margin="12,0,0,0"/>
+                        <TextBlock x:Name="detailedbattery" TextWrapping="Wrap" Text="5% " FontFamily="Segoe WP SemiLight" FontSize="33" Margin="0,13,0,0"/>
+                    </StackPanel>
+                    <TextBlock HorizontalAlignment="Left" Margin="23,15,0,0" TextWrapping="Wrap" Text="CHANGE" VerticalAlignment="Top" FontFamily="Segoe UI Semilight" FontSize="22" FontWeight="Bold" Foreground="{StaticResource PhoneAccentBrush}"/>
+                    <TextBlock x:Name="detailedChange" TextWrapping="Wrap" Text="+ 5% in the last 15 minutes" FontFamily="Segoe WP SemiLight" FontSize="30" Margin="23,10,0,10" />
+                    <TextBlock HorizontalAlignment="Left" Margin="23,15,0,0" TextWrapping="Wrap" Text="DEVICES / SERVICES ACTIVE" VerticalAlignment="Top" FontFamily="Segoe UI Semilight" FontSize="22" FontWeight="Bold" Foreground="{StaticResource PhoneAccentBrush}"/>
+                    <StackPanel Background="Transparent" Orientation="Vertical">
+                        <StackPanel x:Name="onBattery" Background="Transparent" Orientation="Horizontal">
+                            <Image Height="70" Width="70" Source="/Icons/DARK_NOTcharge.png" Margin="12,0,0,0"/>
+                            <TextBlock TextWrapping="Wrap" Text="On Battery" FontSize="33" FontFamily="Segoe WP SemiLight" Margin="0,10,0,0" />
+                        </StackPanel>
+                        <StackPanel x:Name="onPluggedIn" Background="Transparent" Orientation="Horizontal">
+                            <Image Height="70" Width="70" Source="/Icons/DARK_charge.png" Margin="12,0,0,0"/>
+                            <TextBlock TextWrapping="Wrap" Text="Plugged In" FontSize="33" FontFamily="Segoe WP SemiLight" Margin="0,10,0,0" />
+                        </StackPanel>
+                        <StackPanel x:Name="onWifiOn" Background="Transparent" Orientation="Horizontal">
+                            <Image Height="70" Width="70" Source="/Wifi.png" Margin="12,0,0,0"/>
+                            <TextBlock TextWrapping="Wrap" Text="Wifi On" FontSize="33" FontFamily="Segoe WP SemiLight" Margin="0,10,0,0" />
+                        </StackPanel>
+                        <StackPanel x:Name="onOffline" Background="Transparent" Orientation="Horizontal">
+                            <Image Height="70" Width="70" Source="/Icons/Airplane.png" Margin="12,0,0,0"/>
+                            <TextBlock TextWrapping="Wrap" Text="Airplane Mode / Offline" FontSize="33" FontFamily="Segoe WP SemiLight" Margin="0,10,0,0"/>
+                        </StackPanel>
+                        <StackPanel x:Name="onDataLimit" Background="Transparent" Orientation="Horizontal">
+                            <Image Height="70" Width="70" Source="/Icons/appbar.database.png" Margin="12,0,0,0"/>
+                            <TextBlock TextWrapping="Wrap" Text="Datalimit Reached" FontSize="33" FontFamily="Segoe WP SemiLight" Margin="0,10,0,0" />
+                        </StackPanel>
+
+                        <StackPanel x:Name="onInternet" Background="Transparent" Orientation="Horizontal">
+                            <Image Height="70" Width="70" Source="/Wifi.png" Margin="12,0,0,0"/>
+                            <TextBlock TextWrapping="Wrap" Text="Internet Access" FontSize="33" FontFamily="Segoe WP SemiLight" Margin="0,10,0,0" />
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+
+
+        <Grid HorizontalAlignment="Left" Width="480" Margin="0,0,0,404" Grid.RowSpan="2" VerticalAlignment="Top">
+            <ProgressBar HorizontalAlignment="Left" Height="4" Margin="-11,180,-13,-1" VerticalAlignment="Top" Width="504" Value="100" Background="{StaticResource PhoneBackgroundBrush}" Foreground="{StaticResource PhoneBackgroundBrush}">
+                <ProgressBar.RenderTransform>
+                    <CompositeTransform ScaleY="-45"/>
+                </ProgressBar.RenderTransform>
+            </ProgressBar>
+            <ProgressBar x:Name="ChargingStatusBar" HorizontalAlignment="Left" Height="4" Margin="-13,180,-13,-1" VerticalAlignment="Top" Width="506" Value="100" Background="{x:Null}">
+                <ProgressBar.RenderTransform>
+                    <CompositeTransform ScaleY="-45"/>
+                </ProgressBar.RenderTransform>
+            </ProgressBar>
+
+            <TextBlock x:Name="ChargeStatus" HorizontalAlignment="Left" Margin="27,-2,0,0" TextWrapping="Wrap" Text="5%" VerticalAlignment="Top" FontSize="130" FontFamily="Segoe WP Light" Width="453" />
+
+        </Grid>
+
+    </Grid>
+
+</phone:PhoneApplicationPage>

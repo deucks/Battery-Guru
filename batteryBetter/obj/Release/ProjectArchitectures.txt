@@ -1,0 +1,4 @@
+C:\Users\Raajit\Documents\Visual Studio 2013\Projects\batteryBetter\batteryBetter\batteryBetter.csproj;neutral
+C:\Users\Raajit\Documents\Visual Studio 2013\Projects\batteryBetter\Core\Core.csproj;neutral
+C:\Users\Raajit\Documents\Visual Studio 2013\Projects\batteryBetter\Core\Core.csproj;neutral
+C:\Users\Raajit\Documents\Visual Studio 2013\Projects\batteryBetter\ScheduledTaskAgent1\ScheduledTaskAgent1.csproj;neutral

@@ -1,0 +1,9 @@
+﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="batteryBetter" EntryPointType="batteryBetter.App" RuntimeVersion="6.7.50308.0">
+  <Deployment.Parts>
+    <AssemblyPart x:Name="batteryBetter" Source="batteryBetter.dll" />
+    <AssemblyPart x:Name="Core" Source="Core.dll" />
+    <AssemblyPart x:Name="Microsoft.Phone.Controls.Toolkit" Source="Microsoft.Phone.Controls.Toolkit.dll" />
+    <AssemblyPart x:Name="ScheduledTaskAgent1" Source="ScheduledTaskAgent1.dll" />
+    <AssemblyPart x:Name="Syncfusion.SfChart.WPSilverlight" Source="Syncfusion.SfChart.WPSilverlight.dll" />
+  </Deployment.Parts>
+</Deployment>
